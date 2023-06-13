@@ -1,2 +1,2 @@
 # study
-spring study
+spring study!
