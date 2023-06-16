@@ -9,7 +9,13 @@ public class MemberApp {
 
     //psvm 엔터
     public static void main(String[] args) {
-        MemberService  memberService = new MemberServiceImpl();
+
+        //MemberService  memberService = new MemberServiceImpl(memberRepository);
+
+        AppConfig appConfig = new AppConfig();
+        MemberService  memberService = appConfig.memberService();
+
+
 
         //new부터 작성하고 앞에서 ctr + alt + v
         Member member = new Member(1L, "memberA", Grade.VIP);
