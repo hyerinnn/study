@@ -10,10 +10,12 @@ public class MemberApp {
     //psvm 엔터
     public static void main(String[] args) {
 
-        //MemberService  memberService = new MemberServiceImpl(memberRepository);
+       //MemberService  memberService = new MemberServiceImpl();
+
 
         AppConfig appConfig = new AppConfig();
         MemberService  memberService = appConfig.memberService();
+
 
 
 

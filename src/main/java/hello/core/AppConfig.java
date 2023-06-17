@@ -10,6 +10,7 @@ import hello.core.order.OrderServiceImpl;
 public class AppConfig {
 
     public MemberService memberService(){
+        // Service 객체에 memberRepository의 구현체를 생성해 주입
         return new MemberServiceImpl(new MemoryMemberRepository());
     }
 
