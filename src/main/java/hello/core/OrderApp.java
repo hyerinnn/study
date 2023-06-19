@@ -4,6 +4,8 @@ import hello.core.member.*;
 import hello.core.order.Order;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class OrderApp {
     public static void main(String[] args) {
@@ -11,10 +13,17 @@ public class OrderApp {
         OrderService orderService = new OrderServiceImpl();
         */
 
+/*
 
         AppConfig appConfig = new AppConfig();
         MemberService memberService = appConfig.memberService();
         OrderService orderService = appConfig.orderService();
+*/
+//스프링으로 변환
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        MemberService  memberService = applicationContext.getBean("memberService", MemberService.class);
+        OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
+
 
         Long memberId = 1L;
         Long member2Id = 2L;
@@ -25,7 +34,7 @@ public class OrderApp {
         memberService.join(member);
         memberService.join(member2);
 
-        Order order = orderService.createOrder(memberId, "itemA", 10000);
+        Order order = orderService.createOrder(memberId, "itemA", 20000);
         Order order2 = orderService.createOrder(member2Id, "itemA", 10000);
 
         System.out.println("order = " + order.toString());
