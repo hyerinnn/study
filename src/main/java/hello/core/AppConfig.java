@@ -24,6 +24,7 @@ public class AppConfig {
 
     @Bean
     public MemoryMemberRepository memberRepository() {
+
         return new MemoryMemberRepository();
     }
 
