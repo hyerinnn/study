@@ -26,6 +26,7 @@ class StatefulServiceTest {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(TestConfig.class);
         StatefulService statefulService1 = ac.getBean(StatefulService.class);
         StatefulService statefulService2 = ac.getBean(StatefulService.class);
+/*
 
         // ThreadA : A사용자 10000원 주문
         statefulService1.order("userA", 10000);
@@ -37,6 +38,12 @@ class StatefulServiceTest {
         System.out.println("price = " + price);
 
         Assertions.assertThat(statefulService1.getPrice()).isEqualTo(20000);
+*/
+
+        // 지역변수로  리팩토링한 경우
+        int userAPrice = statefulService1.order("userA", 10000);
+        int userBPrice = statefulService2.order("userB", 20000);
+        System.out.println("userAPrice = " + userAPrice);
 
     }
 
