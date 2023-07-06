@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+//@Configuration이 없으면 Bean만으로도 스프링컨테이너에 등록되지만, 싱글톤은 보장하지 않음
 public class AppConfig {
 // 각각의 역할을 분명하게!
 
